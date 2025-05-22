@@ -29,3 +29,9 @@ Config Porta.6 = Input     ' LM35 sensor input
 PortD.3 = 0                ' Enable internal pull-down
 PortD.4 = 0
 Config ADC=Single, prescaler=AUTO, reference=INTERNAL_2.56       ' ADC configuration
+
+' External interrupt INT0 configuration (center button)
+On Int0 PushButtonInterrupt
+Config Int0 = Falling      ' Enable interrupt on falling edge
+Enable Int0
+Enable Interrupts
