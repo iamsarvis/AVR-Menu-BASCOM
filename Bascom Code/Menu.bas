@@ -141,3 +141,23 @@ Do
 
 Loop
 END
+
+' INT0 interrupt (center button)
+PushButtonInterrupt:
+   If State = stIdle Then
+      State = stMainMenu
+      MenuIndex = 0
+      stateChanged = 1
+   ElseIf State = stMainMenu Then
+      If MenuIndex = 0 Then
+         State = stLED
+      Else
+         State = stTemp
+      End If
+      stateChanged = 1
+   ElseIf State = stLED Or State = stTemp Then
+      State = stIdle
+      portb.0 = LedState
+      stateChanged = 1
+   End If
+Return
