@@ -4,7 +4,7 @@
 
 ---
 
-## 🧭 English Documentation
+## 🧭 [English Documentation](#english-documentation)
 
 This project implements a simple, efficient menu system for the **ATmega16** microcontroller using the concept of a [Finite-State Machine (FSM)](https://en.wikipedia.org/wiki/Finite-state_machine). The menu is displayed on a **16x2 character LCD** and controlled with three buttons (UP, DOWN, SELECT). The **SELECT button uses INT0 external interrupt** to enter/confirm menu actions.
 
@@ -21,23 +21,27 @@ This project implements a simple, efficient menu system for the **ATmega16** mic
 
 | Component      | Pin        |
 |----------------|------------|
-| LCD 16x2       | PORTA      |
-| Button UP      | PC0        |
-| Button DOWN    | PC1        |
+| LCD 16x2       | PA(0-5)      |
+| LM35           | PA6         |
+| Button UP      | PD3        |
+| Button DOWN    | PD4        |
 | Button SELECT  | PD2 (INT0) |
-| LED (optional) | PC3        |
+| LED (optional) | PB0         |
+| Fan (optional) | PB1         |
 
 ### 📂 Folder Structure
 
+```
 AVR-Menu-BASCOM/
 ├── Bascom Code/
-│ └── menu_state_machine.bas
+│   └── menu_state_machine.bas
 ├── Simulation (Proteus)/
-│ └── AVR_Menu_Simulation.pdsprj
+│   └── AVR_Menu_Simulation.pdsprj
 ├── docs/
-│ └── screenshot.png
+│   └── screenshot.png
 ├── LICENSE
 └── README.md
+```
 
 ### 🧪 Usage Instructions
 
@@ -67,7 +71,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 📘 مستندات فارسی
+## 📘 [مستندات فارسی](#مستندات-فارسی)
 
 این پروژه یک سیستم منوی ساده و ساختارمند را برای میکروکنترلر **ATmega16** پیاده‌سازی می‌کند که مبتنی بر مفهوم [ماشین حالت محدود (FSM)](https://fa.wikipedia.org/wiki/ماشین_حالت) می‌باشد. این منو روی نمایشگر LCD 16x2 نمایش داده شده و با سه دکمه (بالا، پایین، انتخاب) کنترل می‌شود. دکمه انتخاب با استفاده از **وقفه خارجی INT0** عمل می‌کند.
 
@@ -84,23 +88,27 @@ This project is licensed under the [MIT License](LICENSE).
 
 | قطعه             | پایه متصل   |
 |------------------|-------------|
-| LCD 16x2         | PORTA       |
-| دکمه بالا        | PC0         |
-| دکمه پایین       | PC1         |
+| LCD 16x2         | PA(0-5)       |
+| LM35             | PA6         |
+| دکمه بالا        | PD3         |
+| دکمه پایین       | PD4         |
 | دکمه تایید (انتخاب) | PD2 (INT0) |
-| LED (اختیاری)    | PC3         |
+| LED (اختیاری)    | PB0         |
+| Fan (اختیاری)    | PB1         |
 
 ### 📁 ساختار پوشه‌ها
 
+```
 AVR-Menu-BASCOM/
 ├── Bascom Code/
-│ └── menu_state_machine.bas
+│   └── menu_state_machine.bas
 ├── Simulation (Proteus)/
-│ └── AVR_Menu_Simulation.pdsprj
+│   └── AVR_Menu_Simulation.pdsprj
 ├── docs/
-│ └── screenshot.png
+│   └── screenshot.png
 ├── LICENSE
 └── README.md
+```
 
 
 ### 🧪 طریقه استفاده
