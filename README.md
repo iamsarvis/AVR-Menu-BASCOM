@@ -1,5 +1,130 @@
-# AVR Menu (BASCOM)
-To design a simple menu system for AVR microcontroller using a [Finite State Machine (FSM)](https://en.wikipedia.org/wiki/Finite-state_machine) approach in BASCOM, allowing the user to navigate through menu options using buttons and trigger specific actions (like controlling an LED, reading temperature, or setting a timer).
+# AVR Menu System Using Finite State Machine (BASCOM AVR) | سیستم منو مبتنی بر ماشین حالت در AVR با BASCOM
 
-## Persian
-طراحی یک منوی ساده برای میکروکنترلر AVR با استفاده از [روش ماشین حالت](https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%B4%DB%8C%D9%86_%D8%AD%D8%A7%D9%84%D8%A7%D8%AA_%D9%85%D8%AA%D9%86%D8%A7%D9%87%DB%8C) در محیط BASCOM، که کاربر با استفاده از دکمه‌ها بین گزینه‌های مختلف منو جابجا شود و عملکرد مورد نظر را انتخاب کند (مثل کنترل LED، خواندن دما و تنظیم تایمر).
+[English](#english-documentation) | [فارسی](#مستندات-فارسی)
+
+---
+
+## 🧭 English Documentation
+
+This project implements a simple, efficient menu system for the **ATmega16** microcontroller using the concept of a [Finite-State Machine (FSM)](https://en.wikipedia.org/wiki/Finite-state_machine). The menu is displayed on a **16x2 character LCD** and controlled with three buttons (UP, DOWN, SELECT). The **SELECT button uses INT0 external interrupt** to enter/confirm menu actions.
+
+### 🚀 Features
+
+- ⚙️ Structured menu navigation with a state machine
+- 📟 LCD 16x2 menu interface
+- 🎛️ 3-button control (UP, DOWN, SELECT)
+- ⏱️ External interrupt (INT0) for clean SELECT behavior
+- 💾 Edit and save settings interactively
+- 🧪 Example options: LED control, temperature threshold
+
+### 🛠️ Hardware Requirements
+
+| Component      | Pin        |
+|----------------|------------|
+| LCD 16x2       | PORTA      |
+| Button UP      | PC0        |
+| Button DOWN    | PC1        |
+| Button SELECT  | PD2 (INT0) |
+| LED (optional) | PC3        |
+
+### 📂 Folder Structure
+
+AVR-Menu-BASCOM/
+├── Bascom Code/
+│ └── menu_state_machine.bas
+├── Simulation (Proteus)/
+│ └── AVR_Menu_Simulation.pdsprj
+├── docs/
+│ └── screenshot.png
+├── LICENSE
+└── README.md
+
+### 🧪 Usage Instructions
+
+1. Open `.bas` file with **BASCOM AVR** IDE.
+2. Compile and upload to an **ATmega16** MCU.
+3. Connect LCD and buttons as per pin mapping.
+4. Press **SELECT (INT0)** to enter menu.
+5. Use **UP/DOWN** to navigate.
+6. Press **SELECT** again to confirm or enter edit mode.
+7. Press **SELECT** again to save and exit.
+
+### 📸 Preview
+
+![LCD Screenshot](docs/screenshot.png)
+
+---
+
+## 🏷️ Tags
+
+`avr` `bascom` `lcd-menu` `finite-state-machine` `microcontroller` `embedded` `fsm` `interrupt-driven-menu`
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 📘 مستندات فارسی
+
+این پروژه یک سیستم منوی ساده و ساختارمند را برای میکروکنترلر **ATmega16** پیاده‌سازی می‌کند که مبتنی بر مفهوم [ماشین حالت محدود (FSM)](https://fa.wikipedia.org/wiki/ماشین_حالت) می‌باشد. این منو روی نمایشگر LCD 16x2 نمایش داده شده و با سه دکمه (بالا، پایین، انتخاب) کنترل می‌شود. دکمه انتخاب با استفاده از **وقفه خارجی INT0** عمل می‌کند.
+
+### 🚀 ویژگی‌ها
+
+- ⚙️ پیمایش منو با استفاده از معماری ماشین حالت
+- 📟 رابط منو روی LCD کاراکتری 16x2
+- 🎛️ کنترل با سه دکمه (بالا، پایین، تایید)
+- ⏱️ استفاده از وقفه خارجی برای دکمه تایید (INT0)
+- 💾 امکان ویرایش تنظیمات و ذخیره آن‌ها
+- 🧪 گزینه‌های نمونه: کنترل LED، تنظیم دمای مرجع
+
+### 🛠️ نیازمندی‌های سخت‌افزاری
+
+| قطعه             | پایه متصل   |
+|------------------|-------------|
+| LCD 16x2         | PORTA       |
+| دکمه بالا        | PC0         |
+| دکمه پایین       | PC1         |
+| دکمه تایید (انتخاب) | PD2 (INT0) |
+| LED (اختیاری)    | PC3         |
+
+### 📁 ساختار پوشه‌ها
+
+AVR-Menu-BASCOM/
+├── Bascom Code/
+│ └── menu_state_machine.bas
+├── Simulation (Proteus)/
+│ └── AVR_Menu_Simulation.pdsprj
+├── docs/
+│ └── screenshot.png
+├── LICENSE
+└── README.md
+
+
+### 🧪 طریقه استفاده
+
+1. فایل `.bas` را با نرم‌افزار BASCOM AVR باز کنید.
+2. کامپایل کرده و روی میکروکنترلر ATmega16 فلش کنید.
+3. LCD و دکمه‌ها را طبق جدول بالا متصل کنید.
+4. دکمه **تایید (INT0)** را برای ورود به منو بزنید.
+5. با دکمه‌های **بالا/پایین** بین گزینه‌ها حرکت کنید.
+6. دوباره دکمه تایید را برای ورود به ویرایش بزنید.
+7. بار دیگر دکمه تایید را برای ذخیره تنظیمات و خروج بزنید.
+
+### 📸 پیش‌نمایش
+
+![پیش‌نمایش LCD](docs/screenshot.png)
+
+---
+
+## 🏷️ برچسب‌ها (تگ‌ها)
+
+`AVR` `BASCOM` `ماشین حالت` `FSM` `سیستم منو` `میکروکنترلر` `LCD منو` `وقتی اینتراپت` `پروژه AVR`
+
+---
+
+## 📜 مجوز
+
+این پروژه تحت مجوز [MIT](LICENSE) منتشر شده است و استفاده از آن آزاد است.
