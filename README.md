@@ -1,4 +1,4 @@
-# AVR Menu System Using Finite State Machine (BASCOM AVR) | سیستم منو مبتنی بر ماشین حالت در AVR با BASCOM
+# AVR Menu System Using FSM (BASCOM AVR)
 
 [English](#english-documentation) | [فارسی](#مستندات-فارسی)
 
