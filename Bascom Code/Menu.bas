@@ -35,3 +35,10 @@ On Int0 PushButtonInterrupt
 Config Int0 = Falling      ' Enable interrupt on falling edge
 Enable Int0
 Enable Interrupts
+
+' Initial values
+State = stIdle
+MenuIndex = 0
+LedState = 0
+TempThreshold = 25         ' Default temperature threshold
+stateChanged = 1           ' For displaying initial message
