@@ -1,2 +1,3 @@
 *.bas linguist-language=Basic
-Simulation (Proteus)/* linguist-documentation
+"Simulation (Proteus)/*" linguist-documentation=true
+
