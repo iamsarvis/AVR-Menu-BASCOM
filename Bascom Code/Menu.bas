@@ -42,3 +42,102 @@ MenuIndex = 0
 LedState = 0
 TempThreshold = 25         ' Default temperature threshold
 stateChanged = 1           ' For displaying initial message
+
+' Main program loop
+Do
+   ' Read LM35 value
+   If State = stIdle Then
+      TempADC = getADC(6)
+      TempLM35 = TempADC*0.25
+      Locate 2, 1
+      If TempLM35 < TempThreshold Then
+         Lcd "Temp : "; TempLM35; "      "
+         Reset portb.1
+      Else
+         Lcd "Over Heat!Fan:on"
+         Set portb.1
+      End IF
+   End If
+   ' Update display if state or parameter has changed
+   If stateChanged = 1 Then
+      stateChanged = 0
+      Cls
+      Select Case State
+         Case stIdle
+            Locate 1, 1
+            Lcd "Press MENU..."
+         Case stMainMenu
+            ' Display main menu with '>' showing selected option
+            Locate 1, 1
+            If MenuIndex = 0 Then
+               Lcd "> LED Control"
+            Else
+               Lcd "  LED Control"
+            End If
+            Locate 2, 1
+            If MenuIndex = 1 Then
+               Lcd "> Set Temp Thr"
+            Else
+               Lcd "  Set Temp Thr"
+            End If
+         Case stLED
+            ' LED control status
+            Locate 1, 1
+            Lcd "LED Control"
+            Locate 2, 1
+            If LedState = 1 Then
+               Lcd "Status: ON "
+            Else
+               Lcd "Status: OFF"
+            End If
+         Case stTemp
+            ' Set temperature threshold
+            Locate 1, 1
+            Lcd "Set Temp Thr"
+            Locate 2, 1
+            Lcd "Value: "; TempThreshold
+      End Select
+   End If
+
+   ' Read UP/DOWN buttons in menu states
+   If State = stMainMenu Or State = stLED Or State = stTemp Then
+      ' UP button
+      If Pind.3 = 1 Then
+         Do: Loop Until Pind.3 = 0
+         If State = stMainMenu Then
+            If MenuIndex > 0 Then
+               MenuIndex = MenuIndex - 1
+               stateChanged = 1
+            End If
+         ElseIf State = stLED Then
+            LedState = 1
+            stateChanged = 1
+         ElseIf State = stTemp Then
+            If TempThreshold < 100 Then
+               TempThreshold = TempThreshold + 1
+               stateChanged = 1
+            End If
+         End If
+      End If
+      ' DOWN button
+      If Pind.4 = 1 Then
+         Do: Loop Until Pind.4 = 0
+         If State = stMainMenu Then
+            If MenuIndex < 1 Then
+               MenuIndex = MenuIndex + 1
+               stateChanged = 1
+            End If
+         ElseIf State = stLED Then
+            LedState = 0
+            stateChanged = 1
+         ElseIf State = stTemp Then
+            If TempThreshold > 0 Then
+               TempThreshold = TempThreshold - 1
+               stateChanged = 1
+            End If
+         End If
+      End If
+   End If
+
+Loop
+END
